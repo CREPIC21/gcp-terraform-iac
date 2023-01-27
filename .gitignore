@@ -1,0 +1,6 @@
+/gcp_keys
+TODO.md
+resources.MD 
+Lab_02.pdf
+/initial_setup/remote_state/.terraform*
+/initial_setup/remote_state/terraform*
