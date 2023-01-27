@@ -1,9 +1,9 @@
 module "network_europe" {
     source = "../../../../modules/network"
-    network_name = "production-network"
-    firewall_name = "production-firewall"
+    network_name = var.network_name
+    firewall_name = var.firewall_name
     project_id = var.project_id
-    subnet_name = "production-subnet"
+    subnet_name = var.subnet_name
     subnet_region = var.region
 }
 
@@ -19,22 +19,22 @@ module "google_europe_vm" {
     ]
 }
 
-# module "data_europe" {
-#   source = "../../../../modules/data"
-#   cloud_storage_name = "production-cloud-storage"
-#   cloud_storage_region = var.region
-#   cloud_storage_versioning = true
-#   memory_storage_name = "production-memory-storage"
-#   memory_size_gb = 1
-#   memory_store_region = var.region
-#   memory_store_vpc = module.network_europe.network_self_link
-#   project_id = var.project_id
-#   memory_store_tier = "BASIC"
-#   sql_database_name = "production-sql-database"
-#   sql_database_region = var.region
-#   private_ip_address_name = "production-private-ip"
-#   vpc_name = module.network_europe.network_name
-#   depends_on = [
-#     module.network_europe
-#   ]
-# }
+module "data_europe" {
+  source = "../../../../modules/data"
+
+  memory_storage_name = var.memory_storage_name
+  memory_size_gb = var.memory_size_gb
+  memory_store_region = var.region
+  memory_store_vpc = module.network_europe.network_self_link
+  project_id = var.project_id
+  memory_store_tier = var.memory_store_tier
+  sql_database_name = var.sql_database_name
+  sql_database_version = var.sql_database_version
+  sql_database_region = var.region
+  sql_database_tier = var.sql_database_tier
+  private_ip_address_name = var.private_ip_address_name
+  vpc_name = module.network_europe.network_name
+  depends_on = [
+    module.network_europe
+  ]
+}

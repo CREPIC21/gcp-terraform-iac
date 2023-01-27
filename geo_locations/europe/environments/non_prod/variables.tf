@@ -26,3 +26,44 @@ variable "machine_type" {
 variable "instance_image" {
   default = "debian-cloud/debian-11"
 }
+
+variable "network_name" {
+  default = "non-production-network"
+}
+
+variable "firewall_name" {
+  default = "non-production-firewall"
+}
+
+variable "subnet_name" {
+  default = "non-production-subnet"
+}
+
+variable "sql_database_name" {
+  default = "non-production-sql-database"
+}
+
+variable "sql_database_version" {
+  default = "POSTGRES_14"
+}
+
+variable "sql_database_tier" {
+  default = "db-f1-micro"
+}
+
+variable "private_ip_address_name" {
+  default = "non-production-private-ip"
+}
+
+variable "memory_storage_name" {
+  default = "non-production-memory-storage"
+}
+
+variable "memory_size_gb" {
+  default = 1
+}
+
+variable "memory_store_tier" {
+  default = "BASIC"
+}
+

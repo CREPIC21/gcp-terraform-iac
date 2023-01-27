@@ -18,7 +18,7 @@ resource "google_service_networking_connection" "private_vpc_connection" {
 
 resource "google_sql_database_instance" "main" {
   name             = var.sql_database_name
-  database_version = "POSTGRES_14"
+  database_version = var.sql_database_version
   region           = var.sql_database_region
   depends_on = [google_service_networking_connection.private_vpc_connection]
 
@@ -26,7 +26,7 @@ resource "google_sql_database_instance" "main" {
     # Second-generation instance tiers are based on the machine
     # type. See argument reference below.
 
-    tier = "db-f1-micro"
+    tier = var.sql_database_tier
     ip_configuration {
       ipv4_enabled    = false
       private_network = data.google_compute_network.vpc_network.id

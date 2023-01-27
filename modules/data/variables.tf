@@ -26,8 +26,16 @@ variable "sql_database_name" {
   default = "sql-database"
 }
 
+variable "sql_database_version" {
+  default = "POSTGRES_14"
+}
+
 variable "sql_database_region" {
   default = "europe-west1"
+}
+
+variable "sql_database_tier" {
+  default = "db-f1-micro"
 }
 
 variable "vpc_name" {
