@@ -3,7 +3,7 @@ variable "cloud_storage_name" {
 }
 
 variable "cloud_storage_region" {
-  default = ""
+default = "europe-west1"
 }
 
 variable "cloud_storage_versioning" {

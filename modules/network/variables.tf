@@ -7,7 +7,7 @@ variable "firewall_name" {
 }
 
 variable "project_id" {
-  default = "test"
+  default = "test-project-id"
 }
 
 variable "subnet_name" {
